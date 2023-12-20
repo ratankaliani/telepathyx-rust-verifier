@@ -11,7 +11,6 @@ use ark_std::vec;
 use ark_std::vec::Vec;
 use codec::{Decode, Encode};
 use ethabi::ParamType;
-use scale_info::TypeInfo;
 use serde::{Deserialize, Serialize};
 use sp_core::{H256, U256};
 
@@ -82,12 +81,12 @@ impl PublicSignals {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Encode, Decode, TypeInfo)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Encode, Decode)]
 pub enum VerificationError {
     InvalidProof,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Encode, Decode, TypeInfo)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Encode, Decode)]
 pub struct Verifier {
     pub vk_json: VerifyingKeyJson,
 }
@@ -97,7 +96,7 @@ pub enum VKeyDeserializationError {
     SerdeError,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Encode, Decode, TypeInfo)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize, Encode, Decode)]
 pub struct VerifyingKeyJson {
     #[serde(rename = "IC")]
     pub ic: Vec<Vec<String>>,
